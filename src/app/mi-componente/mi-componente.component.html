@@ -1,0 +1,15 @@
+<p>mi-componente works!</p>
+<ul>
+    <li>{{ propiedad }}</li>
+    <li>{{ enConstructor }}</li>
+    <li>{{ enOnInit }}</li>
+</ul>
+
+<img [src]="miImagen" alt="">
+<br>
+<button (click)="seleccionarImagen($event)" value= 'Img1'>Imagen 1</button>
+<button (click)="seleccionarImagen($event)" value= 'Img2'>Imagen 2</button>
+<button (click)="seleccionarImagen($event)" value= 'Img3'>Imagen 3</button>
+    
+<p> Hola {{miTexto}}</p>
+<input type="text" [(ngModel)]="miTexto">
