@@ -9,12 +9,11 @@ import { Task } from '../models/task';
 export class MiComponenteComponent implements OnInit {
   
   // Este metodo lo realiza a traves del llamado a una clase
-  public taskList:Task={action:'Hacer esto'};   
-  public list:string[]=['Hacer que compile','Que se vea bonito'];
+  public taskList:Task[]=[];   
   public element:string='';
   public localHour:string='';
+  public editedValue:string='';
   
-
   constructor(){}
 
   ngOnInit():void{
@@ -29,15 +28,23 @@ export class MiComponenteComponent implements OnInit {
   }
 
   public addToList(cad:string) {
-    this.list.push(cad);
+    let nuevo:Task={action:cad};
+    this.taskList.push(nuevo);
     /*Realiza un push a nuestro arreglo realizando una nueva instancia a la clase TaskComponent*/
     //this.taskList.push(new TaskComponent);
   }
 
   public deleteTask(index:number){
     if(index>-1){
-      this.list.splice(index, 1);
-      //this.taskList.splice(index, 1);
+      this.taskList.splice(index, 1);
     }  
+  }
+
+  public editTask(index:number,cad:string){
+    if(cad.length>0){
+      this.taskList[index].action=cad;
+    }else{
+      alert('Favor de colocar el nuevo valor que le gustaria cambiar');
+    }
   }
 }

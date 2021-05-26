@@ -3,19 +3,21 @@
     <button (click)="addToList(element)">Add Task</button>
 </div>
 
-<div class="task" *ngFor="let task of list; index as i">
+<div class="task" *ngFor="let task of taskList; index as i">
     <div>
         <span class="title">Task number:</span>{{i+1}}
         <span class="remove">
             <button (click)='deleteTask(i)'>Completado</button>
+            <button (click)='editTask(i,element)'>Editar</button>
         </span>
     </div>
     <div>
-        <span class="title">Action:</span>
-        <input value={{task}} type="text">
+        <span class="title">Action:{{task.action}}</span>
+        
     </div>
 </div>
-
+<br>
+<br>
 <div class="clock">
     <p>{{localHour | date: 'mediumTime' }}</p>
 </div>
