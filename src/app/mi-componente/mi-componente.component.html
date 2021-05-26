@@ -1,15 +1,21 @@
-<p>mi-componente works!</p>
-<ul>
-    <li>{{ propiedad }}</li>
-    <li>{{ enConstructor }}</li>
-    <li>{{ enOnInit }}</li>
-</ul>
+<div>
+    <input [(ngModel)]="element" type="text">
+    <button (click)="addToList(element)">Add Task</button>
+</div>
 
-<img [src]="miImagen" alt="">
-<br>
-<button (click)="seleccionarImagen($event)" value= 'Img1'>Imagen 1</button>
-<button (click)="seleccionarImagen($event)" value= 'Img2'>Imagen 2</button>
-<button (click)="seleccionarImagen($event)" value= 'Img3'>Imagen 3</button>
-    
-<p> Hola {{miTexto}}</p>
-<input type="text" [(ngModel)]="miTexto">
+<div class="task" *ngFor="let task of list; index as i">
+    <div>
+        <span class="title">Task number:</span>{{i+1}}
+        <span class="remove">
+            <button (click)='deleteTask(i)'>Completado</button>
+        </span>
+    </div>
+    <div>
+        <span class="title">Action:</span>
+        <input value={{task}} type="text">
+    </div>
+</div>
+
+<div class="clock">
+    <p>{{localHour | date: 'mediumTime' }}</p>
+</div>
